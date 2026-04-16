@@ -54,4 +54,5 @@ resource_group = {
     location = "northeurope"
     name     = "rg-user8"
 }
+}
 

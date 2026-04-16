@@ -48,9 +48,17 @@ module "app_service" {
   app_service_plan_id = module.service_plan.app_service_plan.id
   app_settings = {
 }
- identity_client_id = "9d712058-3178-406c-b746-519c5dd9c73d"
-  identity_id = "a0563091-23b2-452a-88cd-457ae6116bff"
+ identity_client_id = module.managed_identity_client_id.app_service_plan.id
+  identity_id = module.managed_identity_id.app_service_plan.id
 resource_group = {
+    location = "northeurope"
+    name     = "rg-user8"
+ }
+}
+module "managed_identity" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
+  name = "miuser8ga2026"
+  resource_group = {
     location = "northeurope"
     name     = "rg-user8"
  }

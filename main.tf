@@ -36,7 +36,10 @@ module "service_plan" {
  tags = {
 environment = "dev"
   }
- resource_group = "rg-user8"
+ resource_group = {
+    location = "northeurope"
+    name     = "rg-user8"
+}
  sku_name = "B1"
 }
 

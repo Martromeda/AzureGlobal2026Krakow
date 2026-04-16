@@ -42,4 +42,16 @@ environment = "dev"
 }
  sku_name = "B1"
 }
+module "app_service" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
+  app_service_name = "user8appsrvname"
+  app_service_plan_id = module.service_plan.app_service_plan.id
+  app_settings = {
+}
+ identity_client_id = "9d712058-3178-406c-b746-519c5dd9c73d"
+  identity_id = "a0563091-23b2-452a-88cd-457ae6116bff"
+resource_group = {
+    location = "northeurope"
+    name     = "rg-user8"
+}
 

@@ -33,6 +33,9 @@ module "keyvault" {
 module "service_plan" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
  app_service_plan_name = "gauser8sp"
+ tags = {
+environment = "dev"
+  }
  resource_group = "rg-user8"
  sku_name = "B1"
 }

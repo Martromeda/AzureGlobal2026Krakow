@@ -42,6 +42,15 @@ environment = "dev"
 }
  sku_name = "B1"
 }
+
+module "managed_identity" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
+  name = "miuser8ga2026"
+  resource_group = {
+    location = "northeurope"
+    name     = "rg-user8"
+ }
+}
 module "app_service" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
   app_service_name = "user8appsrvname"
@@ -51,14 +60,6 @@ module "app_service" {
  identity_client_id = module.managed_identity_client_id.app_service_plan.id
   identity_id = module.managed_identity_id.app_service_plan.id
 resource_group = {
-    location = "northeurope"
-    name     = "rg-user8"
- }
-}
-module "managed_identity" {
-  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
-  name = "miuser8ga2026"
-  resource_group = {
     location = "northeurope"
     name     = "rg-user8"
  }

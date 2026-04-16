@@ -53,6 +53,6 @@ module "app_service" {
 resource_group = {
     location = "northeurope"
     name     = "rg-user8"
-}
+ }
 }
 

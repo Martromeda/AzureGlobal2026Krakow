@@ -64,4 +64,15 @@ resource_group = {
     name     = "rg-user8"
  }
 }
+module "mssql_server" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=mssql_server/v1.0.0"
+resource_group = {
+    location = "northeurope"
+    name     = "rg-user8"
+ }
+sql_server_admin = "sqladmin"
+sql_server_name = "user8sqlserver"
+sql_server_version = "17.0"
+  
+}
 

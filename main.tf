@@ -72,7 +72,7 @@ resource_group = {
  }
 sql_server_admin = "sqladmin"
 sql_server_name = "user8sqlserver"
-sql_server_version = "17.0"
+sql_server_version = "12.0"
   
 }
 
